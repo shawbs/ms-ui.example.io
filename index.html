@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+</head>
+<style>
+.mobile{
+  width: 414px;
+  height: 736px;
+  transform: scale(.8,.8);
+  background: #ffffff;
+  box-shadow: 0 0 5px #dddddd;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 100;
+  display: none;
+}
+.mobile iframe{
+  width: 100%;
+  height: 100%;
+}
+</style>
+<script>
+window.onscroll = function(e){
+  if(document.body.className.indexOf('sticky') !== -1){
+    document.querySelector('.mobile').style.display = 'block'
+  }else{
+    document.querySelector('.mobile').style.display = 'none'
+  }
+}
+</script>
+<body>
+  <!-- <a href="/demo.html">demo</a> -->
+  <div class="mobile">
+      <iframe src="/dist/" frameborder="0"></iframe>
+  </div>
+    <nav>
+        <a href="#/">中文</a>
+        <!-- <a href="#/en/">EN</a> -->
+      </nav>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      coverpage: ['/','/en/'],
+      name: '',
+      repo: '',
+    }
+  </script>
+  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+</body>
+</html>
