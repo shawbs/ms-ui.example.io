@@ -1,14 +1,17 @@
 
+#### 关于文档
+> 文档可以说是相关的简陋，组件的prop实在太多了，作者实在是不想写，所以都没写。。<br/>
+> 组件预览在右侧, 预览和示例代码基本是一样的
 
-## 安装
+## 安装 [github](https://github.com/shawbs/ms-ui)
 
-```
+```shell
 npm install @shawbs/ms-ui -S
 ```
 
 ### 全部引入
 
-```
+```js
 import MsUi from "@shawbs/ms-ui";
 import "@shawbs/ms-ui/lib/theme/index.css";
 Vue.use(MsUi, { size: "small" });
@@ -29,7 +32,7 @@ Vue.use(MsUi, { size: "small" });
     ]
 }
 ```
-```
+```js
 import {
   Tabbar,
   TabbarItem,
@@ -77,7 +80,7 @@ Vue.component(SideMenu.name, SideMenu);
 
 ### 国际化
 
-```
+```js
 import MsUi from "@shawbs/ms-ui";
 import "@shawbs/ms-ui/lib/theme/index.css";
 import en from "@shawbs/ms-ui/lib/locale/lang/en";
@@ -87,13 +90,13 @@ Vue.use(MsUi, { locale: en });
 
 ### 主题化
 
-```
+```js
 import MsUi from "@shawbs/ms-ui";
 import "./ms-ui.scss";
 Vue.use(MsUi);
 ```
 ms-ui.scss
-```
+```scss
 /* 改变主题色变量 */
 $--color-primary: teal;
 
@@ -390,4 +393,90 @@ scale-down
         right
     </div>
 </ms-side-menu>
+```
+
+### cell
+```vue
+<ms-cell-group title="cell1">
+    <ms-cell label="asd" link>
+        <div slot="suffix">asd</div>
+    </ms-cell>
+    <ms-cell label="asd" link>
+        <ms-input></ms-input>
+        <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+    </ms-cell>
+    <ms-cell>asd
+
+        <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+    </ms-cell>
+</ms-cell-group>
+<ms-cell-group style="margin-top: 20px;">
+    <ms-cell label="asd" link>
+        <div slot="suffix">asd</div>
+    </ms-cell>
+    <ms-cell label="asd" link>
+        <ms-input></ms-input>
+        <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+    </ms-cell>
+    <ms-cell>asd
+
+        <div slot="suffix"><ms-icon icon="home"></ms-icon></div>
+    </ms-cell>
+</ms-cell-group>
+```
+
+### swtich
+```vue
+<div>
+    默认的:<ms-switch v-model="value"></ms-switch><br>
+</div>
+<div>
+    <h3>定义label</h3>
+    <ms-switch on-text="开" off-text="关" v-model="value"></ms-switch>
+</div>
+<div>
+    <h3>自定义颜色</h3>
+    <ms-switch  on-color="red" off-color="blue" v-model="value"></ms-switch><br>
+    <ms-switch on-text="开" off-text="关"  on-color="red" off-color="blue" v-model="value"></ms-switch>
+</div>
+<div>
+    <h3>自定义大小</h3>
+    <ms-switch size="30px" v-model="value"></ms-switch>
+</div>
+```
+
+### pull-refresh
+```vue
+<ms-pull-refresh ref="pullRefresh">
+    <ms-button @click.native = '$refs.pullRefresh.start()'>start</ms-button>
+    <ms-button @click.native = '$refs.pullRefresh.stop()'>stop</ms-button>
+    <p v-for="item in 50" :key="'a'+ item">{{item}}</p>
+</ms-pull-refresh>
+```
+
+### nav
+``` vue
+<h3>默认</h3>
+<ms-nav></ms-nav>
+<h3>隐藏back按钮</h3>
+<ms-nav :show-back="false" title="标题">
+    <ms-icon slot="left" icon="inform"></ms-icon>
+    <ms-input size="mini">
+        <ms-icon icon="search" slot="suffix"></ms-icon>
+    </ms-input>
+    <ms-icon slot="right" icon="search"></ms-icon>
+</ms-nav>
+<h3>标题</h3>
+<ms-nav title="标题"></ms-nav>
+<h3>自定义中间区域</h3>
+<ms-nav>
+    <ms-input size="mini">
+        <ms-icon icon="search" slot="suffix"></ms-icon>
+    </ms-input>
+</ms-nav>
+<h3>自定义右边区域</h3>
+<ms-nav title="asd">
+    <ms-button size="mini" type="primary" slot="left" icon="search"></ms-button>
+    <ms-button size="mini" type="primary" slot="right" icon="search"></ms-button>
+</ms-nav>
 ```
